@@ -6,13 +6,13 @@
 /*   By: kkhai-ki <kkhai-ki@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:20:58 by kkhai-ki          #+#    #+#             */
-/*   Updated: 2023/12/20 19:20:31 by kkhai-ki         ###   ########.fr       */
+/*   Updated: 2024/11/10 15:02:55 by kkhai-ki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_store_str(int fd, char *stored)
+static char	*ft_store_str(int fd, char *stored)
 {
 	char	*buffer;
 	int		i;
@@ -36,7 +36,7 @@ char	*ft_store_str(int fd, char *stored)
 	return (stored);
 }
 
-char	*ft_get_line(char *stored)
+static char	*ft_get_line(char *stored)
 {
 	int		i;
 	char	*str;
@@ -64,7 +64,7 @@ char	*ft_get_line(char *stored)
 	return (str);
 }
 
-char	*ft_get_new_stored(char *stored)
+static char	*ft_get_new_stored(char *stored)
 {
 	char	*str;
 	int		i;
@@ -104,28 +104,3 @@ char	*get_next_line(int fd)
 	stored = ft_get_new_stored(stored);
 	return (line);
 }
-
-// int	main(void)
-// {
-// 	int		fd1 = open("test/test.txt", O_RDONLY);
-// 	char	*stored;
-// 	char	*line;
-// 	int		len;
-
-// 	stored = ft_store_str(fd1, stored);
-// 	line = ft_get_line(stored);
-// 	len = ft_strlen(line);
-// 	printf("%s", stored);
-// 	printf("%s", line);
-// 	stored = ft_get_new_stored(stored, len);
-// 	printf("%s\n", stored);
-// }
-
-// int main(void)
-// {
-// 	int	fd1;
-
-// 	fd1 = open("test/test.txt", O_RDONLY);
-// 	printf("%s", get_next_line(fd1));
-// 	// printf("%s", get_next_line(fd1));
-// }
